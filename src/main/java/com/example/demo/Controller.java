@@ -19,4 +19,9 @@ public class Controller {
     public ResponseEntity<?> getGreets(@RequestParam("names")String names){
         return new ResponseEntity<>("Resolver-help"+names, HttpStatus.OK);
     }
+
+    @GetMapping("/greet")
+    public ResponseEntity<?> getGreeting(){
+        return new ResponseEntity<>("Resolver-help "+Thread.currentThread().getName(), HttpStatus.OK);
+    }
 }
