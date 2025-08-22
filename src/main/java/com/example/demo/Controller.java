@@ -17,10 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class Controller {
+    /**
+     * By wi-12001
+     * @param names
+     * @return
+     */
     @GetMapping("/")
     public ResponseEntity<?> getGreets(@RequestParam("names")String names){
         return new ResponseEntity<>("Resolver-help"+names, HttpStatus.OK);
     }
+
 
     /**
      * add in branch wi 12002
@@ -30,5 +36,11 @@ public class Controller {
     @GetMapping("/out/{system}")
     public ResponseEntity<?> getGreetsOut(@PathVariable("system") String system){
         return new ResponseEntity<>("Resolver-help::"+system+" !.", HttpStatus.OK);
+    }
+
+    @GetMapping("/greet")
+    public ResponseEntity<?> getGreeting(){
+        return new ResponseEntity<>("Resolver-help "+Thread.currentThread().getName(), HttpStatus.OK);
+
     }
 }
