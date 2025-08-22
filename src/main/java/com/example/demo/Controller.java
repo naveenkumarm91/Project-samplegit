@@ -24,4 +24,9 @@ public class Controller {
     public ResponseEntity<?> getGreeting(){
         return new ResponseEntity<>("Resolver-help "+Thread.currentThread().getName(), HttpStatus.OK);
     }
+
+    @GetMapping("/out/{system}")
+    public ResponseEntity<?> getGreetsOut(@PathVariable("system") String system){
+        return new ResponseEntity<>("Resolver-help::"+system+" !.", HttpStatus.OK);
+    }
 }
