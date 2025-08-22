@@ -2,7 +2,6 @@ package com.example.demo;
 
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class Controller {
+    /**
+     * By wi-12001
+     * @param names
+     * @return
+     */
     @GetMapping("/")
     public ResponseEntity<?> getGreets(@RequestParam("names")String names){
         return new ResponseEntity<>("Resolver-help"+names, HttpStatus.OK);
