@@ -4,6 +4,9 @@ package com.example.demo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.PathVariable ;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,8 +27,20 @@ public class Controller {
         return new ResponseEntity<>("Resolver-help"+names, HttpStatus.OK);
     }
 
+
+    /**
+     * add in branch wi 12002
+     * @param system
+     * @return
+     */
+    @GetMapping("/out/{system}")
+    public ResponseEntity<?> getGreetsOut(@PathVariable("system") String system){
+        return new ResponseEntity<>("Resolver-help::"+system+" !.", HttpStatus.OK);
+    }
+
     @GetMapping("/greet")
     public ResponseEntity<?> getGreeting(){
         return new ResponseEntity<>("Resolver-help "+Thread.currentThread().getName(), HttpStatus.OK);
+
     }
 }
